@@ -4,19 +4,23 @@
 #include <cmath>
 using namespace ariel;
 
-double Point::distance(const Point &other) const {
+double Point::distance(const Point &other) const
+{
     double x_diff = m_x - other.m_x;
     double y_diff = m_y - other.m_y;
     return sqrt(x_diff * x_diff + y_diff * y_diff);
 }
 
-Point Point::moveTowards(const Point &src, const Point &dest, double distance) {
-    if(distance < 0 ){
+Point Point::moveTowards(const Point &src, const Point &dest, double distance)
+{
+    if (distance < 0)
+    {
         throw std::invalid_argument("Can not move with a negative distance");
     }
 
     double distanceBetweenPoints = src.distance(dest);
-    if (distanceBetweenPoints <= distance) {
+    if (distanceBetweenPoints <= distance)
+    {
         return Point(dest);
     }
 
@@ -29,7 +33,7 @@ Point Point::moveTowards(const Point &src, const Point &dest, double distance) {
     return Point(src.m_x + s_x, src.m_y + s_y);
 }
 
-std::string Point::print() const {
+std::string Point::print() const
+{
     return "(" + std::to_string(m_x) + "," + std::to_string(m_y) + ")";
 }
-

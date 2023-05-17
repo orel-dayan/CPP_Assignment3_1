@@ -27,6 +27,11 @@ namespace ariel {
 
         std::string print() const; // print point
 
+       double getX() const// NOLINT
+         { return m_x; } 
+        double getY() const // NOLINT  
+        { return m_y; } 
+
         static Point moveTowards(const Point &src, const Point &dest, double distance); // move point towards another point , static because it doesn't change the object
     };
 }
